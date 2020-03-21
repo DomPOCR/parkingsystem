@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
-		
+
 		<dep.mavensite.version>3.9.0</dep.mavensite.version>
 		<dep.log4j.version>2.12.1</dep.log4j.version>
 		<dep.mysql.version>8.0.17</dep.mysql.version>
@@ -20,6 +20,7 @@
 		<dep.mockito.version>3.1.0</dep.mockito.version>
 		<dep.assertj.version>3.15.0</dep.assertj.version>
 		<dep.jacoco.version>0.8.5</dep.jacoco.version>
+		<dep.checkstyle.version>3.1.1</dep.checkstyle.version>
 	</properties>
 
 	<dependencies>
@@ -73,6 +74,12 @@
 			<artifactId>maven-assembly-plugin</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>${dep.checkstyle.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
