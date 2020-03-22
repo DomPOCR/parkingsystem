@@ -46,6 +46,8 @@ public class ParkingDataBaseIT {
 		lenient().when(inputReaderUtil.readSelection()).thenReturn(1);
 		lenient().when(inputReaderUtil.readVehicleRegistrationNumber())
 				.thenReturn("ABCDEF");
+
+		// Clear de la DB
 		dataBasePrepareService.clearDataBaseEntries();
 	}
 
@@ -90,12 +92,34 @@ public class ParkingDataBaseIT {
 
 	@Test
 	public void testParkingLotExit() {
+		// DP : On relance le test précédent
 		testParkingACar();
+
+		// Initialisation du service parking
 		ParkingService parkingService = new ParkingService(inputReaderUtil,
 				parkingSpotDAO, ticketDAO);
+
+		// Récupération du véhicule pour la sortie
 		parkingService.processExitingVehicle();
+
 		// TODO: check that the fare generated and out time are populated
 		// correctly in the database
+
+		// Etape 1 : récupérer le ticket du véhicule immatriculé "ABCDEF" ==>
+		// mocké
+		Ticket ticket = ticketDAO.getTicket("ABCDEF");
+
+		// Etape 2 : vérification de l'existence du ticket
+		Assertions.assertNotNull(ticket);
+
+		// Etape 3 : vérification que le ticket a une date de sortie du véhicule
+		Assertions.assertNotNull(ticket.getOutTime());
+
+		// Etape 4 : vérification que le prix du ticket est correct
+		// On teste la valeur 0 car dans le test on rentre et on sort de suite.
+		// On peut pas mocker le prix (variable static).
+		Assertions.assertEquals(0, ticket.getPrice());
+
 	}
 
 }
