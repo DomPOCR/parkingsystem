@@ -22,7 +22,7 @@ public class DataBaseTestConfig extends DataBaseConfig {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		return DriverManager.getConnection(
 				"jdbc:mysql://127.0.0.1:3306/test?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Europe/Paris",
-				"root", "SQLAldoLili59@");
+				"root", "RootRoot_");
 	}
 
 	public void closeConnection(Connection con) {
