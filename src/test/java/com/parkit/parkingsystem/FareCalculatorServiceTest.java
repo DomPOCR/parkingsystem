@@ -190,4 +190,29 @@ public class FareCalculatorServiceTest {
 		assertEquals(0.5 * Fare.CAR_RATE_PER_HOUR, ticket.getPrice());
 
 	}
+	@Test
+	public void calculateFareCarWithRegularCustomer() {
+		Date inTime = new Date();
+		inTime.setTime(System.currentTimeMillis() - (24 * 60 * 60 * 1000)); // 24
+																			// H
+																			// de
+																			// parking
+
+		Date outTime = new Date();
+		ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
+
+		ticket.setInTime(inTime);
+		ticket.setOutTime(outTime);
+		ticket.setParkingSpot(parkingSpot);
+		fareCalculatorService.calculateFare(ticket,
+				Fare.DISCOUNT_REGULAR_CUSTOMER);
+		assertEquals(
+				(double) Math.round(
+						((24 * Fare.CAR_RATE_PER_HOUR * 0.95f) * 100) / 100),
+				(double) Math.round(ticket.getPrice() * 100) / 100);
+		// 5%
+		// de
+		// reduction
+
+	}
 }
