@@ -30,7 +30,8 @@ public class ParkingDataBaseIT {
 	private static DataBasePrepareService dataBasePrepareService;
 
 	@Mock
-	private static InputReaderUtil inputReaderUtil;
+	private static InputReaderUtil inputReaderUtilCar;
+	// private static InputReaderUtil inputReaderUtilBike;
 
 	@BeforeAll
 	private static void setUp() throws Exception {
@@ -43,9 +44,14 @@ public class ParkingDataBaseIT {
 
 	@BeforeEach
 	private void setUpPerTest() throws Exception {
-		lenient().when(inputReaderUtil.readSelection()).thenReturn(1);
-		lenient().when(inputReaderUtil.readVehicleRegistrationNumber())
+		lenient().when(inputReaderUtilCar.readSelection()).thenReturn(1); // CAR
+		lenient().when(inputReaderUtilCar.readVehicleRegistrationNumber())
 				.thenReturn("ABCDEF");
+
+		// lenient().when(inputReaderUtilBike.readSelection()).thenReturn(2); //
+		// BIKE
+		// lenient().when(inputReaderUtilBike.readVehicleRegistrationNumber())
+		// .thenReturn("BIKE01");
 
 		// Clear de la DB
 		dataBasePrepareService.clearDataBaseEntries();
@@ -58,7 +64,7 @@ public class ParkingDataBaseIT {
 
 	@Test
 	public void testParkingACar() {
-		ParkingService parkingService = new ParkingService(inputReaderUtil,
+		ParkingService parkingService = new ParkingService(inputReaderUtilCar,
 				parkingSpotDAO, ticketDAO);
 		// DP : récuperer le no de la prochaine classe disponible pourn une
 		// voiture
@@ -96,7 +102,7 @@ public class ParkingDataBaseIT {
 		testParkingACar();
 
 		// Initialisation du service parking
-		ParkingService parkingService = new ParkingService(inputReaderUtil,
+		ParkingService parkingService = new ParkingService(inputReaderUtilCar,
 				parkingSpotDAO, ticketDAO);
 
 		// Récupération du véhicule pour la sortie
