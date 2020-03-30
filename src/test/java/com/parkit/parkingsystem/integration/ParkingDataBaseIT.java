@@ -97,7 +97,7 @@ public class ParkingDataBaseIT {
 	}
 
 	@Test
-	public void testParkingLotExit() {
+	public void testParkingLotExitACar() {
 		// DP : On relance le test précédent
 		testParkingACar();
 
