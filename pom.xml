@@ -213,7 +213,7 @@
 						d'intégration -->
 				<!-- Excludes integration tests when unit tests are run. -->
 					<excludes>
-						<exclude>**/*IT.java</exclude>
+						<exclude>**/*IT*.java</exclude>
 						<exclude>*com/parkit/parkingsystem/dao/**/*</exclude>
 			            <exclude>*com/parkit/parkingsystem/App.java</exclude>
 			        </excludes>

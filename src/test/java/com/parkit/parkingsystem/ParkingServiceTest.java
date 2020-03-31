@@ -35,6 +35,7 @@ public class ParkingServiceTest {
 	private static TicketDAO ticketDAO;
 
 	@BeforeEach
+
 	private void setUpPerTest() {
 		try {
 			when(inputReaderUtil.readVehicleRegistrationNumber())

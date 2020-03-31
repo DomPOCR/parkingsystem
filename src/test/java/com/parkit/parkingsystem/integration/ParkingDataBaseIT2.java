@@ -21,12 +21,12 @@ import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 
-//	-------------------------------------------------
-// 				TESTS INTEGRATION VOITURE 
+//-------------------------------------------------
+//	TESTS INTEGRATION MOTO
 //---------------------------------------------------
 
 @ExtendWith(MockitoExtension.class)
-public class ParkingDataBaseIT {
+public class ParkingDataBaseIT2 {
 
 	private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
 	private static ParkingSpotDAO parkingSpotDAO;
@@ -34,7 +34,7 @@ public class ParkingDataBaseIT {
 	private static DataBasePrepareService dataBasePrepareService;
 
 	@Mock
-	private static InputReaderUtil inputReaderUtilCar;
+	private static InputReaderUtil inputReaderUtilBike;
 
 	@BeforeAll
 	private static void setUp() throws Exception {
@@ -47,9 +47,11 @@ public class ParkingDataBaseIT {
 
 	@BeforeEach
 	private void setUpPerTest() throws Exception {
-		lenient().when(inputReaderUtilCar.readSelection()).thenReturn(1); // CAR
-		lenient().when(inputReaderUtilCar.readVehicleRegistrationNumber())
-				.thenReturn("ABCDEF");
+
+		lenient().when(inputReaderUtilBike.readSelection()).thenReturn(2); //
+		// BIKE
+		lenient().when(inputReaderUtilBike.readVehicleRegistrationNumber())
+				.thenReturn("BIKE01");
 
 		// Clear de la DB
 		dataBasePrepareService.clearDataBaseEntries();
@@ -61,20 +63,20 @@ public class ParkingDataBaseIT {
 	}
 
 	@Test
-	public void testParkingACar() {
-		ParkingService parkingService = new ParkingService(inputReaderUtilCar,
+	public void testParkingABike() {
+		ParkingService parkingService = new ParkingService(inputReaderUtilBike,
 				parkingSpotDAO, ticketDAO);
-		// DP : récuperer le no de la prochaine classe disponible pourn une
-		// voiture
-		int next = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
+		// DP : récuperer le no de la prochaine classe disponible pour une
+		// moto
+		int next = parkingSpotDAO.getNextAvailableSlot(ParkingType.BIKE);
 
 		parkingService.processIncomingVehicle();
 		// TODO: check that a ticket is actualy saved in DB and Parking table is
 		// updated with availability
 
-		// Etape 1 : récupérer le ticket du véhicule immatriculé "ABCDEF" ==>
+		// Etape 1 : récupérer le ticket du véhicule immatriculé "BIKE01" ==>
 		// mocké
-		Ticket ticket = ticketDAO.getTicket("ABCDEF");
+		Ticket ticket = ticketDAO.getTicket("BIKE01");
 
 		// Etape 2 : vérifier l'existence du ticket
 		Assertions.assertNotNull(ticket);
@@ -95,12 +97,12 @@ public class ParkingDataBaseIT {
 	}
 
 	@Test
-	public void testParkingLotExitACar() {
+	public void testParkingLotExitABike() {
 		// DP : On relance le test précédent
-		testParkingACar();
+		testParkingABike();
 
 		// Initialisation du service parking
-		ParkingService parkingService = new ParkingService(inputReaderUtilCar,
+		ParkingService parkingService = new ParkingService(inputReaderUtilBike,
 				parkingSpotDAO, ticketDAO);
 
 		// Récupération du véhicule pour la sortie
@@ -111,7 +113,7 @@ public class ParkingDataBaseIT {
 
 		// Etape 1 : récupérer le ticket du véhicule immatriculé "ABCDEF" ==>
 		// mocké
-		Ticket ticket = ticketDAO.getTicket("ABCDEF");
+		Ticket ticket = ticketDAO.getTicket("BIKE01");
 
 		// Etape 2 : vérification de l'existence du ticket
 		Assertions.assertNotNull(ticket);
