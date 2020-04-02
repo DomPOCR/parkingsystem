@@ -45,7 +45,8 @@ public class ParkingService {
 				Ticket ticket = new Ticket();
 				// ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME,
 				// OUT_TIME)
-				// ticket.setId(ticketID); Inutile car dans new Ticket();
+				// ticket.setId(ticketID);
+				// Inutile car dans new Ticket();
 				ticket.setParkingSpot(parkingSpot);
 				ticket.setVehicleRegNumber(vehicleRegNumber);
 				ticket.setPrice(0);

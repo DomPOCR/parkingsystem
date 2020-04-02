@@ -1,0 +1,152 @@
+commit e5d16734280f7e500296d20f2284d6ab37c312e9
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Thu Apr 2 14:38:33 2020 +0200
+
+    nettoyage code
+
+commit 9184b76838be9a66acf5c0e7b1af79a0845989cf
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Tue Mar 31 16:41:08 2020 +0200
+
+    Ajout ParkingDatabaseIT2 pour test BIKE et LoadMenuTest pour test Scanner
+
+commit 045d7c6c3b2bd53d120d8055f997a7b68a95b86b
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Mon Mar 30 17:54:22 2020 +0200
+
+    Ajout checkfile.xml et modif pom pour ajout plugin checkstyle
+
+commit e6e6064b20f5860268578924cb79a73a9c2a0892
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Mon Mar 30 16:19:56 2020 +0200
+
+    Mise en forme - Pas de changement dans le code
+
+commit dd865430dd44d73bf008d6ceafc727be21f1f75a
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Mon Mar 30 14:12:07 2020 +0200
+
+    Correction sur l'arrondi du test Discount 5percent et modification du pom pour différencier dans Jacoco TU et TI
+
+commit 9d3dd7f97f2c493700d54c925fff21c080426162
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Thu Mar 26 18:38:06 2020 +0100
+
+    Story 2 5% de réduction
+
+commit 8d2d62f29df6a473547afe7d2714878de8bbc604
+Merge: c162fca 558f84a
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Thu Mar 26 16:52:18 2020 +0100
+
+    Merge branch 'features/free-30-min-parking' into develop
+
+commit 558f84ac9c024d2c22893434a0ef4bd1bbbc99bf
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Thu Mar 26 16:47:53 2020 +0100
+
+    Compléter le pom.xlm pour outils couverture de test
+
+commit 494f7252fd9c05bb235696c4ba1c3b654e2a3257
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sun Mar 22 17:53:14 2020 +0100
+
+    Implémentation 30 mn gratuites
+
+commit c162fca010bb0df31b0a518933c6bc9cc4594621
+Merge: 38f0468 7383a08
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sun Mar 22 17:08:58 2020 +0100
+
+    Merge branch 'hotfix/todo2' into develop
+
+commit 7383a086d134684075ff98c547efd2fd8be98d9d
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sun Mar 22 17:03:30 2020 +0100
+
+    Tests integration 2 sur 2
+
+commit c5b5edbdcd60576618eb3a6dbcf768282bb11d44
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sun Mar 22 16:22:40 2020 +0100
+
+    Tests integration 1 sur 2
+
+commit 5718eea9281c0b33cdc49e42b710c39bcc784430
+Merge: 38f0468 280e737
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sat Mar 21 17:45:19 2020 +0100
+
+    Merge branch 'hotfix/todo1'
+
+commit 280e7374b424d60aa41c010f74672c3f63f9c438
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Sat Mar 21 17:34:33 2020 +0100
+
+    Correction TODO1 : méthode calculateFare du service FareCalculatorService
+
+commit fea9b89b642968fd4122a855e39d64eb4e886d30
+Author: DomPOCR <dominiquep.technocenter@gmail.com>
+Date:   Thu Mar 12 17:01:58 2020 +0100
+
+    Mise à jour du pom (plugin DBeaver, findbugs, versions paramétrées)
+
+commit 38f0468ff3e9e7da206b19a2d9167bc009bb2e59
+Author: avinash.cloud9@gmail.com <avinash.cloud9@gmail.com>
+Date:   Thu Oct 17 22:26:53 2019 +0100
+
+    misc changes
+
+commit dde4da62518f9af2e6691ec8e804f932c03089f9
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Wed Oct 16 12:49:54 2019 +0100
+
+    Update README.md
+
+commit bb787e1943d2bf5610f2bef1ffbb9d155da98c26
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Wed Oct 16 12:49:41 2019 +0100
+
+    Update README.md
+
+commit 0e9f8f1c7d0eb0d9558699118e88d0a42f204d56
+Author: avinash.cloud9@gmail.com <avinash.cloud9@gmail.com>
+Date:   Tue Oct 15 23:57:44 2019 +0100
+
+    updated sure fire plugin settings
+
+commit 1b43bc4299931a53a9234d3edea4aff5c1579753
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:58:24 2019 +0100
+
+    Update README.md
+
+commit 437261c2c0c60fa551c266ae55dee21e249da59d
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:57:52 2019 +0100
+
+    Create Data.sql
+
+commit 1404fd24683d9f2e43473a243c32e418c71498d1
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:55:39 2019 +0100
+
+    Update README.md
+
+commit 7d0a1dbf27874adb4e5ac116f692e530daf4b3ef
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:55:02 2019 +0100
+
+    Update README.md
+
+commit 254e74368d7119252ba7f196e38ec43b074bd3c2
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:54:07 2019 +0100
+
+    Create README.md
+
+commit 2a5700988b95f1968f65f0f43ea14926b7fb0b2d
+Author: avinash-dev <38186273+avinash-dev@users.noreply.github.com>
+Date:   Tue Oct 15 19:36:50 2019 +0100
+
+    initial commit
