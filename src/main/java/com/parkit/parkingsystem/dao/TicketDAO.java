@@ -22,10 +22,10 @@ public class TicketDAO {
 
 	public boolean saveTicket(Ticket ticket) {
 		Connection con = null;
+		PreparedStatement ps = null; // DP
 		try {
 			con = dataBaseConfig.getConnection();
-			PreparedStatement ps = con
-					.prepareStatement(DBConstants.SAVE_TICKET);
+			ps = con.prepareStatement(DBConstants.SAVE_TICKET); // DP
 			// ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
 			// ps.setInt(1,ticket.getId());
 			ps.setInt(1, ticket.getParkingSpot().getId());
@@ -40,6 +40,7 @@ public class TicketDAO {
 		} catch (Exception ex) {
 			logger.error("Error fetching next available slot", ex);
 		} finally {
+			dataBaseConfig.closePreparedStatement(ps); // DP
 			dataBaseConfig.closeConnection(con);
 			return false;
 		}
@@ -48,9 +49,10 @@ public class TicketDAO {
 	public Ticket getTicket(String vehicleRegNumber) {
 		Connection con = null;
 		Ticket ticket = null;
+		PreparedStatement ps = null; // DP
 		try {
 			con = dataBaseConfig.getConnection();
-			PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);
+			ps = con.prepareStatement(DBConstants.GET_TICKET); // DP
 			// ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
 			ps.setString(1, vehicleRegNumber);
 			ResultSet rs = ps.executeQuery();
@@ -70,6 +72,7 @@ public class TicketDAO {
 		} catch (Exception ex) {
 			logger.error("Error fetching next available slot", ex);
 		} finally {
+			dataBaseConfig.closePreparedStatement(ps); // DP
 			dataBaseConfig.closeConnection(con);
 			return ticket;
 		}
@@ -77,10 +80,10 @@ public class TicketDAO {
 
 	public boolean updateTicket(Ticket ticket) {
 		Connection con = null;
+		PreparedStatement ps = null; // DP
 		try {
 			con = dataBaseConfig.getConnection();
-			PreparedStatement ps = con
-					.prepareStatement(DBConstants.UPDATE_TICKET);
+			ps = con.prepareStatement(DBConstants.UPDATE_TICKET); // DP
 			ps.setDouble(1, ticket.getPrice());
 			ps.setTimestamp(2, new Timestamp(ticket.getOutTime().getTime()));
 			ps.setInt(3, ticket.getId());
@@ -89,6 +92,7 @@ public class TicketDAO {
 		} catch (Exception ex) {
 			logger.error("Error saving ticket info", ex);
 		} finally {
+			dataBaseConfig.closePreparedStatement(ps); // DP
 			dataBaseConfig.closeConnection(con);
 		}
 		return false;
@@ -97,11 +101,11 @@ public class TicketDAO {
 	// DP : ajout vérification client régulier
 	public boolean isRegularCustomer(String vehiculeRegNumber) {
 		Connection con = null;
+		PreparedStatement ps = null; // DP
 		boolean customerIsRegular = false;
 		try {
 			con = dataBaseConfig.getConnection();
-			PreparedStatement ps = con
-					.prepareStatement(DBConstants.IS_REGULAR_CUSTOMER);
+			ps = con.prepareStatement(DBConstants.IS_REGULAR_CUSTOMER); // DP
 			ps.setString(1, vehiculeRegNumber);
 			ResultSet rs = ps.executeQuery();
 			// True si la DB récupére les tickets du véhicule
@@ -113,6 +117,7 @@ public class TicketDAO {
 		} catch (Exception ex) {
 			logger.error("Error fetching next avalaible slot", ex);
 		} finally {
+			dataBaseConfig.closePreparedStatement(ps); // DP
 			dataBaseConfig.closeConnection(con);
 		}
 		return customerIsRegular;
