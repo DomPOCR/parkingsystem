@@ -353,6 +353,10 @@
 					    <title>${project.name} : Fusion tests unitaires et d'intégration</title>
 					    <dataFile>${project.build.directory}/jacoco-merged.exec</dataFile>
 					    <outputDirectory>${project.reporting.outputDirectory}/jacoco-merged</outputDirectory>
+					    <excludes>
+					    	<exclude>com/parkit/parkingsystem/model/**/*</exclude>
+					    	<exclude>com/parkit/parkingsystem/config/**/*</exclude>
+					    </excludes>
 					  </configuration>
 					</execution>
 				</executions>

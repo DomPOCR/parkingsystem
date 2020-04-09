@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,9 +18,15 @@ public class DataBaseConfig {
 			throws ClassNotFoundException, SQLException {
 		logger.info("Create DB connection");
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/prod?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Europe/Paris",
-				"root", "RootRoot_");
+
+		// DP : utilisation d'un fichier config dans src\main\ressources
+
+		ResourceBundle bundle = ResourceBundle.getBundle("config");
+		String mysqlUrl = bundle.getString("mysql.urlprod");
+		String mysqlLogin = bundle.getString("mysql.login");
+		String mysqlPassword = bundle.getString("mysql.password");
+		return DriverManager.getConnection(mysqlUrl, mysqlLogin, mysqlPassword);
+
 	}
 
 	public void closeConnection(Connection con) {

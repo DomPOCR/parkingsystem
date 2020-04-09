@@ -20,13 +20,12 @@ public class LoadMenuTest {
 	public void menuTest() throws Exception {
 		// inputReaderUtil = new InputReaderUtil();
 
-		InteractiveShell interactiveShell = new InteractiveShell();
 		String input = "3\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		System.setOut(new PrintStream(outContent));
 
-		interactiveShell.loadInterface();
+		InteractiveShell.loadInterface();
 
 		assertTrue(
 				outContent.toString().contains("Welcome to Parking System!"));

@@ -95,13 +95,16 @@ public class ParkingDataBaseIT {
 	}
 
 	@Test
-	public void testParkingLotExitACar() {
+	public void testParkingLotExitACar() throws InterruptedException {
 		// DP : On relance le test précédent
 		testParkingACar();
 
 		// Initialisation du service parking
 		ParkingService parkingService = new ParkingService(inputReaderUtilCar,
 				parkingSpotDAO, ticketDAO);
+
+		// On attend 1 seconde avant de sortir le véhicule
+		Thread.sleep(1000);
 
 		// Récupération du véhicule pour la sortie
 		parkingService.processExitingVehicle();
