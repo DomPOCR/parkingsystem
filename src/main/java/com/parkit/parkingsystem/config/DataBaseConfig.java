@@ -27,9 +27,6 @@ public class DataBaseConfig {
 		String mysqlPassword = bundle.getString("mysql.password");
 		return DriverManager.getConnection(mysqlUrl, mysqlLogin, mysqlPassword);
 
-		// return DriverManager.getConnection(
-		// "jdbc:mysql://127.0.0.1:3306/prod?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Europe/Paris",
-		// "root", "RootRoot_");
 	}
 
 	public void closeConnection(Connection con) {
